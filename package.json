@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "mysql",
+  "main": "Bamazon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marshall49/Bamazon.git"
+  },
+  "author": "malcolm strong\\",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marshall49/Bamazon/issues"
+  },
+  "homepage": "https://github.com/Marshall49/Bamazon#readme",
+  "dependencies": {
+    "inquirer": "^3.2.1",
+    "mysql": "^2.14.0"
+  }
+}
