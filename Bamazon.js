@@ -32,8 +32,48 @@ inquirer.prompt ([
     type: 'Shoe',
     name: 'What',
     message: "What Shoes are You Looking to Buy?",
-    choices: ['Nike', 'Adidas', 'New Balance', 'Reebok', 'Puma', 'Asics', 'Gucci', 'Air Jordans', 'Saucony', 'Timbaland'],
+    choices: {
+      shoeName: "Nike",
+      indexNumber: 1
+    }
+    // {
+    //   shoeName: "Adidas",
+    //   indexNumber: 2
+    // },
+    // {
+    //   shoeName: "New Balance",
+    //   indexNumber: 3
+    // }
+    // {
+    //   shoeName: "Reebok",
+    //   indexNumber: 4
+    // }
+    // {
+    //   shoeName: "Puma",
+    //   indexNumber: 5
+    // },
+    // {
+    //   shoeName: "Asics",
+    //   indexNumber: 6
+    // },
+    // {
+    //   shoeName: "Gucci",
+    //   indexNumber: 7
+    // },
+    // {
+    //   shoeName: "Air Jordans",
+    //   indexNumber: 8
+    // },
+    // {
+    //   shoeName: "Saucony",
+    //   indexNumber: 9
+    // },
+    // {
+    //   shoeName: "Timbaland",
+    //   indexNumber: 10
+    // }
   },
+
 ]).then(function(answers){
   connection.query("SELECT * FROM products", function(err, res) {
     var userInput = JSON.stringify(answers.What, null, 2);
