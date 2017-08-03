@@ -81,11 +81,10 @@ inquirer.prompt ([
   var id = answers.Shoe;
   connection.query("SELECT * FROM products WHERE ?",
   { id: id }, function(err, res) {
-    //svar userInput = JSON.stringify(answers.name);
     var response = res[0];
     console.log("--------------------")
     console.log(`You've selected ${response.shoe}!`)
-    //console.log("The quantity is " + response.quantity)
+
     quantity = response.quantity;
     inquirer.prompt ([
       {
@@ -95,11 +94,11 @@ inquirer.prompt ([
     ]).then(function(answer) {
       console.log(quantity);
       console.log("You want to buy: " + answer.numberOfPairs);
-      var updatedQuantity = quantity - answers.numberOfPairs;
+      var updatedQuantity = quantity - answer.numberOfPairs;
       console.log("updatedQuantity " + updatedQuantity);
       if (answer.numberOfPairs <= quantity) {
         connection.query("UPDATE products SET quantity = ? WHERE ?", [updatedQuantity, { id: id }],  function(err, res) {
-          if (err) throw err;// var response = res[0];
+          if (err) throw err;
           console.log("We Got It!");
           console.log(res);
         });
@@ -107,26 +106,9 @@ inquirer.prompt ([
           console.log("We are Out!");
         }
 
-      //}
+      })
     });
 
 
   })
-    })
-  //   if (userInput ===  answers.name) {
-  // }
-
-
-
-}
-
-
-
-
-
-  //
-  // {
-  //   type: 'Units',
-  //   name: 'Quantity',
-  //   message: "How Many Pair's Are You Looking To Buy?",
-  // }
+    }
